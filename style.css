@@ -1,0 +1,211 @@
+:root {
+    --fondo-oscuro: #121212;
+    --fondo-carta: #1e1e1e;
+    --purpura-aluli: #9c27b0;
+    --cian-aluli: #00bcd4;
+    --texto-claro: #ffffff;
+    --texto-suave: #b0b0b0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--fondo-oscuro);
+    color: var(--texto-claro);
+    overflow-x: hidden;
+}
+
+/* --- LOADER --- */
+#loader {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: var(--fondo-oscuro);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--texto-suave);
+    border-top-color: var(--purpura-aluli);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* --- HEADER / MENÚ --- */
+header {
+    background-color: rgba(0, 0, 0, 0.95);
+    padding: 1rem 5%; /* Padding lateral para que no pegue a los bordes */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--purpura-aluli);
+}
+
+.logo-boceto {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--cian-aluli);
+    letter-spacing: 2px;
+}
+
+.logo-boceto span { color: var(--purpura-aluli); }
+
+nav ul {
+    display: flex; 
+    flex-direction: row; 
+    gap: 15px; 
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+}
+
+nav a {
+    text-decoration: none; 
+    color: white; 
+    background-color: rgba(156, 39, 176, 0.3); /* Morado suave de fondo */
+    padding: 10px 18px; 
+    border-radius: 8px; 
+    display: inline-block; 
+    font-weight: bold;
+    border: 1px solid var(--purpura-aluli);
+    transition: 0.3s;
+}
+
+nav a:hover {
+    background-color: var(--purpura-aluli); 
+    box-shadow: 0 0 15px var(--purpura-aluli); 
+    transform: translateY(-2px);
+}
+
+/* --- SECCIÓN HEROE (EL AJUSTE CLAVE) --- */
+.heroe {
+    /* Usamos padding-top para forzar el espacio debajo del menú */
+    padding-top: 150px; 
+    padding-bottom: 50px;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: radial-gradient(circle, rgba(156,39,176,0.1) 0%, rgba(18,18,18,1) 80%);
+}
+
+.heroe h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, var(--purpura-aluli), var(--cian-aluli));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitulo {
+    color: var(--texto-suave);
+    max-width: 600px;
+}
+
+/* --- CATÁLOGO --- */
+.catalogo {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.titulo-seccion {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2rem;
+}
+
+.contenedor-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.producto-card {
+    background-color: var(--fondo-carta);
+    border-radius: 12px;
+    padding-bottom: 1rem;
+    transition: transform 0.3s ease;
+    border: 1px solid #333;
+    overflow: hidden;
+}
+
+.producto-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--cian-aluli);
+    box-shadow: 0 10px 20px rgba(156, 39, 176, 0.2);
+}
+
+.producto-imagen {
+    height: 180px;
+    background: #252525;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--texto-suave);
+}
+
+.producto-info { padding: 1.2rem; }
+
+.producto-precio {
+    color: var(--purpura-aluli);
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.btn-ver {
+    display: block;
+    margin-top: 1rem;
+    padding: 0.6rem;
+    border: 2px solid var(--cian-aluli);
+    color: var(--cian-aluli);
+    text-align: center;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-ver:hover {
+    background: var(--cian-aluli);
+    color: var(--fondo-oscuro);
+}
+
+/* --- ANIMACIONES --- */
+.oculto {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+footer {
+    text-align: center;
+    padding: 3rem;
+    color: var(--texto-suave);
+    border-top: 1px solid #222;
+}
