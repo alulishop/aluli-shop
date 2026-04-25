@@ -145,3 +145,26 @@ function enviarWhatsApp() {
     const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
     window.open(url, '_blank');
 }
+
+function actualizarCarritoUI() {
+    const contenedor = document.getElementById('items-carrito');
+    const contador = document.getElementById('contador-carrito');
+    const totalTxt = document.getElementById('precio-total'); // El de PC
+    const totalMovilTxt = document.getElementById('total-movil'); // El de Celular
+    
+    contenedor.innerHTML = '';
+    let total = 0;
+
+    // ... (Tu lógica de recorrer el carrito que ya tenías) ...
+    carrito.forEach((item, index) => {
+        total += item.precio;
+        // ... render de items ...
+    });
+
+    // Actualizamos ambos montos
+    if(totalTxt) totalTxt.innerText = `$${total.toFixed(2)}`;
+    if(totalMovilTxt) totalMovilTxt.innerText = `$${total.toFixed(2)}`;
+    
+    contador.innerText = carrito.length;
+    localStorage.setItem('carritoAluli', JSON.stringify(carrito));
+}

@@ -583,3 +583,48 @@ footer {
     }
 
 }
+
+/* 1. Escondido por defecto (PC) */
+.boton-movil-fijo {
+    display: none;
+}
+
+/* 2. Solo para celulares (Media Query) */
+@media (max-width: 480px) {
+    /* Escondemos el pie de página normal para que no estorbe */
+    .pie-carrito {
+        display: none;
+    }
+
+    /* Activamos el botón exclusivo */
+    .boton-movil-fijo {
+        display: block;
+        position: absolute; /* Se pega al sidebar */
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 15px;
+        background: var(--fondo-oscuro);
+        border-top: 1px solid var(--purpura-aluli);
+        box-sizing: border-box;
+        z-index: 3001;
+    }
+
+    .boton-movil-fijo button {
+        width: 100%;
+        padding: 18px;
+        background: #25d366; /* Verde WhatsApp */
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    }
+
+    /* Ajustamos el margen inferior de los productos para que el botón no los tape */
+    #items-carrito {
+        padding-bottom: 100px; 
+        height: calc(100vh - 150px); /* Forzamos la altura para asegurar el scroll */
+    }
+}
