@@ -456,18 +456,24 @@ footer {
 
 /* Sidebar */
 #carrito-sidebar {
-    position: fixed;
-    top: 0;
-    right: -400px; /* Oculto por defecto */
-    width: 350px;
-    height: 100vh;
-    background: var(--fondo-carta);
-    z-index: 3000;
-    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     flex-direction: column;
-    box-shadow: -10px 0 30px rgba(0,0,0,0.5);
-    border-left: 1px solid var(--purpura-aluli);
+    height: 100vh; /* Altura total de la pantalla del celular */
+    max-height: 100vh; /* Evita que crezca más allá de la pantalla */
+    position: fixed;
+    top: 0;
+    right: -100%; /* O el valor que estés usando para ocultarlo */
+    width: 350px; /* En móvil se ajusta con el media query */
+    z-index: 3000;
+    background: var(--fondo-carta);
+    transition: 0.4s;
+    overflow: hidden; /* IMPORTANTE: El sidebar no debe tener scroll, solo el contenido */
+}
+
+@media (max-width: 480px) {
+    #carrito-sidebar {
+        width: 100%;
+    }
 }
 
 #carrito-sidebar.activo {
@@ -576,11 +582,4 @@ footer {
         margin-bottom: 10px; /* Separación del borde inferior */
     }
 
-}
-
-#items-carrito {
-    flex: 1; 
-    overflow-y: auto; 
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.02); 
 }
