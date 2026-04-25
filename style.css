@@ -501,7 +501,10 @@ footer {
 .pie-carrito {
     padding: 20px;
     background: var(--fondo-oscuro);
-    border-top: 1px solid #333;
+    border-top: 1px solid var(--purpura-aluli);
+    padding-bottom: env(safe-area-inset-bottom);
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.5);
+
 }
 
 .total-contenedor {
@@ -564,4 +567,20 @@ footer {
     background: var(--cian-aluli);
     color: var(--fondo-oscuro);
     box-shadow: 0 0 15px var(--cian-aluli);
+}
+
+@media (max-width: 480px) {
+    #finalizar-pedido {
+        padding: 12px; /* Reducimos un poco el padding para que no sea tan alto */
+        font-size: 1rem;
+        margin-bottom: 10px; /* Separación del borde inferior */
+    }
+
+}
+
+#items-carrito {
+    flex: 1; 
+    overflow-y: auto; 
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.02); 
 }
