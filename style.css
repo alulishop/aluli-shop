@@ -46,11 +46,11 @@ body {
 /* --- HEADER / MENÚ --- */
 header {
     background-color: rgba(0, 0, 0, 0.95);
-    padding: 1rem 5%; /* Padding lateral para que no pegue a los bordes */
+    padding: 1rem 5%;
     position: fixed;
-    width: 100%;
-    top: 0;
     left: 0;
+    right: 0;
+    top: 0;
     z-index: 1000;
     display: flex;
     justify-content: space-between;
@@ -59,7 +59,7 @@ header {
 }
 
 .logo-boceto {
-    font-size: 1.5rem;
+    font-size: 2.2rem; /* Tamaño aumentado */
     font-weight: bold;
     color: var(--cian-aluli);
     letter-spacing: 2px;
@@ -70,34 +70,47 @@ header {
 nav ul {
     display: flex; 
     flex-direction: row; 
-    gap: 15px; 
+    gap: 20px; 
     list-style: none; 
-    padding: 0;
-    margin: 0;
 }
 
 nav a {
     text-decoration: none; 
-    color: white; 
-    background-color: rgba(156, 39, 176, 0.3); /* Morado suave de fondo */
+    color: var(--texto-suave); 
+    background-color: transparent; 
     padding: 10px 18px; 
     border-radius: 8px; 
     display: inline-block; 
     font-weight: bold;
-    border: 1px solid var(--purpura-aluli);
-    transition: 0.3s;
+    border: 1px solid transparent; 
+    transition: all 0.4s ease;
 }
 
-nav a:hover {
-    background-color: var(--purpura-aluli); 
-    box-shadow: 0 0 15px var(--purpura-aluli); 
-    transform: translateY(-2px);
+/* Efectos de color al pasar el mouse */
+nav li:nth-child(1) a:hover {
+    color: white;
+    border-color: var(--purpura-aluli);
+    background-color: rgba(156, 39, 176, 0.15);
+    box-shadow: 0 0 15px rgba(156, 39, 176, 0.3);
 }
 
-/* --- SECCIÓN HEROE (EL AJUSTE CLAVE) --- */
+nav li:nth-child(2) a:hover {
+    color: white;
+    border-color: var(--cian-aluli);
+    background-color: rgba(0, 188, 212, 0.15);
+    box-shadow: 0 0 15px rgba(0, 188, 212, 0.3);
+}
+
+nav li:nth-child(3) a:hover {
+    color: white;
+    border-color: var(--purpura-aluli);
+    background-color: rgba(156, 39, 176, 0.15);
+    box-shadow: 0 0 15px rgba(156, 39, 176, 0.3);
+}
+
+/* --- SECCIÓN HEROE --- */
 .heroe {
-    /* Usamos padding-top para forzar el espacio debajo del menú */
-    padding-top: 150px; 
+    padding-top: 180px; 
     padding-bottom: 50px;
     min-height: 60vh;
     display: flex;
@@ -208,4 +221,347 @@ footer {
     padding: 3rem;
     color: var(--texto-suave);
     border-top: 1px solid #222;
+}
+
+/* Ajuste móvil para logo */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 1rem;
+    }
+    .logo-boceto { font-size: 1.8rem; }
+    .heroe { padding-top: 220px; }
+}
+
+/* --- CONTENEDOR GENERAL --- */
+.seccion-controles {
+    max-width: 900px;
+    margin: 0 auto 4rem auto;
+    padding: 0 20px;
+}
+
+/* --- BUSCADOR MODERNO --- */
+.contenedor-busqueda-pro {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#buscador {
+    width: 100%;
+    padding: 15px 25px;
+    background: rgba(255, 255, 255, 0.05); /* Fondo casi invisible */
+    border: 1px solid rgba(0, 188, 212, 0.3); /* Borde cian sutil */
+    border-radius: 50px; /* Forma de píldora */
+    color: white;
+    font-size: 1.1rem;
+    outline: none;
+    backdrop-filter: blur(5px); /* Efecto cristal */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#buscador:focus {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--cian-aluli);
+    box-shadow: 0 0 20px rgba(0, 188, 212, 0.2), inset 0 0 10px rgba(0, 188, 212, 0.1);
+    transform: scale(1.02); /* Se agranda un poquito al clickar */
+}
+
+#buscador::placeholder {
+    color: var(--texto-suave);
+    opacity: 0.7;
+}
+
+/* --- FILTROS ESTILIZADOS --- */
+.filtros-estilizados {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.btn-filtro {
+    background: transparent;
+    color: var(--texto-suave);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 22px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-filtro:hover {
+    color: var(--cian-aluli);
+    border-color: var(--cian-aluli);
+    background: rgba(0, 188, 212, 0.05);
+}
+
+.btn-filtro.activo {
+    background: linear-gradient(45deg, var(--purpura-aluli), #7b1fa2);
+    border: none;
+    color: white;
+    box-shadow: 0 5px 15px rgba(156, 39, 176, 0.4);
+}
+
+/* Ajuste móvil */
+@media (max-width: 480px) {
+    .btn-filtro {
+        padding: 8px 15px;
+        font-size: 0.8rem;
+    }
+}
+
+.producto-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Esto evita que la imagen se estire feo */
+}
+
+/* Agrega esto a tu style.css */
+.contenedor-busqueda-pro {
+    display: flex;
+    align-items: center;
+}
+
+.lupa {
+    position: absolute;
+    right: 20px;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--cian-aluli);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.lupa::after {
+    content: '';
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    width: 2px;
+    height: 8px;
+    background: var(--cian-aluli);
+    transform: rotate(-45deg);
+}
+
+/* Contenedor relativo para posicionar el indicador */
+.producto-card {
+    position: relative;
+}
+
+/* Base del indicador (Badge) */
+.producto-card::after {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    opacity: 0; /* Oculto por defecto */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(-5px);
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* Mostrar al pasar el mouse */
+.producto-card:hover::after {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- ESTADOS SEGÚN EL DATA-STOCK --- */
+
+/* Disponible (Check) */
+.producto-card[data-stock="disponible"]::after {
+    content: "✓ Disponible";
+    background: rgba(46, 204, 113, 0.9);
+    color: white;
+}
+
+/* Poco Stock (Alerta) */
+.producto-card[data-stock="pocos"]::after {
+    content: "⚠ Poco Stock";
+    background: rgba(241, 196, 15, 0.9);
+    color: #000;
+}
+
+/* Agotado (X) */
+.producto-card[data-stock="agotado"]::after {
+    content: "✕ Agotado";
+    background: rgba(231, 76, 60, 0.9);
+    color: white;
+}
+
+/* --- AJUSTE PARA MÓVIL (FIJO) --- */
+@media (max-width: 768px) {
+    .producto-card::after {
+        opacity: 1; /* Siempre visible en móviles */
+        transform: translateY(0);
+        font-size: 0.65rem;
+        padding: 4px 8px;
+    }
+}
+
+.producto-card[data-stock="agotado"] {
+    filter: grayscale(0.5);
+    opacity: 0.8;
+}
+
+/* Para que el botón de "Ver Detalles" cambie de color si no hay stock */
+.producto-card[data-stock="agotado"] .btn-ver {
+    border-color: #666;
+    color: #666;
+    cursor: not-allowed;
+}
+
+/* Botón Flotante */
+#btn-carrito-flotante {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--purpura-aluli);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 2000;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+#contador-carrito {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    background: var(--cian-aluli);
+    color: var(--fondo-oscuro);
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+/* Sidebar */
+#carrito-sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px; /* Oculto por defecto */
+    width: 350px;
+    height: 100vh;
+    background: var(--fondo-carta);
+    z-index: 3000;
+    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+    border-left: 1px solid var(--purpura-aluli);
+}
+
+#carrito-sidebar.activo {
+    right: 0;
+}
+
+.cabecera-carrito {
+    padding: 20px;
+    background: var(--fondo-oscuro);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+}
+
+#items-carrito {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.item-carrito {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #333;
+}
+
+.pie-carrito {
+    padding: 20px;
+    background: var(--fondo-oscuro);
+    border-top: 1px solid #333;
+}
+
+.total-contenedor {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+#finalizar-pedido {
+    width: 100%;
+    padding: 15px;
+    background: #25d366; /* Verde WhatsApp */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#finalizar-pedido:hover {
+    background: #128c7e;
+}
+
+/* Ajuste móvil */
+@media (max-width: 480px) {
+    #carrito-sidebar { width: 100%; right: -100%; }
+}
+
+.cerrar-carrito {
+    background: transparent;
+    border: none;
+    color: var(--texto-suave);
+    font-size: 2.5rem; /* Tamaño grande para que sea fácil de tocar */
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cerrar-carrito:hover {
+    color: var(--purpura-aluli);
+    transform: rotate(90deg); /* Un pequeño efecto visual al pasar el mouse */
+}
+
+.btn-agregar {
+    width: 100%; /* Para que ocupe todo el ancho disponible */
+    background: transparent;
+    cursor: pointer;
+    font-family: inherit; /* Hereda la fuente de tu body */
+}
+
+/* Efecto especial para el botón de agregar */
+.btn-agregar:hover {
+    background: var(--cian-aluli);
+    color: var(--fondo-oscuro);
+    box-shadow: 0 0 15px var(--cian-aluli);
 }
