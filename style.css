@@ -317,7 +317,6 @@ footer {
         font-size: 0.8rem;
     }
 }
-
 .producto-imagen img {
     width: 100%;
     height: 100%;
@@ -456,24 +455,18 @@ footer {
 
 /* Sidebar */
 #carrito-sidebar {
-    display: flex;
-    flex-direction: column;
-    height: 100vh; /* Altura total de la pantalla del celular */
-    max-height: 100vh; /* Evita que crezca más allá de la pantalla */
     position: fixed;
     top: 0;
-    right: -100%; /* O el valor que estés usando para ocultarlo */
-    width: 350px; /* En móvil se ajusta con el media query */
-    z-index: 3000;
+    right: -400px; /* Oculto por defecto */
+    width: 350px;
+    height: 100vh;
     background: var(--fondo-carta);
-    transition: 0.4s;
-    overflow: hidden; /* IMPORTANTE: El sidebar no debe tener scroll, solo el contenido */
-}
-
-@media (max-width: 480px) {
-    #carrito-sidebar {
-        width: 100%;
-    }
+    z-index: 3000;
+    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+    border-left: 1px solid var(--purpura-aluli);
 }
 
 #carrito-sidebar.activo {
@@ -481,12 +474,18 @@ footer {
 }
 
 .cabecera-carrito {
-    padding: 20px;
+    padding: 15px 20px;
     background: var(--fondo-oscuro);
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #333;
+    align-items: center; /* Esto alinea el texto 'Tu Pedido' con la 'X' */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cabecera-carrito h2 {
+    font-size: 1.2rem;
+    color: var(--cian-aluli);
+    margin: 0;
 }
 
 #items-carrito {
@@ -507,10 +506,7 @@ footer {
 .pie-carrito {
     padding: 20px;
     background: var(--fondo-oscuro);
-    border-top: 1px solid var(--purpura-aluli);
-    padding-bottom: env(safe-area-inset-bottom);
-    box-shadow: 0 -5px 15px rgba(0,0,0,0.5);
-
+    border-top: 1px solid #333;
 }
 
 .total-contenedor {
@@ -575,56 +571,3 @@ footer {
     box-shadow: 0 0 15px var(--cian-aluli);
 }
 
-@media (max-width: 480px) {
-    #finalizar-pedido {
-        padding: 12px; /* Reducimos un poco el padding para que no sea tan alto */
-        font-size: 1rem;
-        margin-bottom: 10px; /* Separación del borde inferior */
-    }
-
-}
-
-/* 1. Escondido por defecto (PC) */
-.boton-movil-fijo {
-    display: none;
-}
-
-/* 2. Solo para celulares (Media Query) */
-@media (max-width: 480px) {
-    /* Escondemos el pie de página normal para que no estorbe */
-    .pie-carrito {
-        display: none;
-    }
-
-    /* Activamos el botón exclusivo */
-    .boton-movil-fijo {
-        display: block;
-        position: absolute; /* Se pega al sidebar */
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        padding: 15px;
-        background: var(--fondo-oscuro);
-        border-top: 1px solid var(--purpura-aluli);
-        box-sizing: border-box;
-        z-index: 3001;
-    }
-
-    .boton-movil-fijo button {
-        width: 100%;
-        padding: 18px;
-        background: #25d366; /* Verde WhatsApp */
-        color: white;
-        border: none;
-        border-radius: 12px;
-        font-size: 1.1rem;
-        font-weight: bold;
-        box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-    }
-
-    /* Ajustamos el margen inferior de los productos para que el botón no los tape */
-    #items-carrito {
-        padding-bottom: 100px; 
-        height: calc(100vh - 150px); /* Forzamos la altura para asegurar el scroll */
-    }
-}

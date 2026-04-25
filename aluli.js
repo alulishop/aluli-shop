@@ -74,7 +74,7 @@ botonesFiltro.forEach(boton => {
 });
 
 let carrito = [];
-const numeroWhatsApp = "+584145074414"; // PON TU NÚMERO AQUÍ
+const numeroWhatsApp = "+584120000000"; // PON TU NÚMERO AQUÍ
 
 // 1. Abrir/Cerrar Carrito
 function toggleCarrito() {
@@ -146,25 +146,16 @@ function enviarWhatsApp() {
     window.open(url, '_blank');
 }
 
-function actualizarCarritoUI() {
-    const contenedor = document.getElementById('items-carrito');
-    const contador = document.getElementById('contador-carrito');
-    const totalTxt = document.getElementById('precio-total'); // El de PC
-    const totalMovilTxt = document.getElementById('total-movil'); // El de Celular
+function agregarAlCarrito(nombre, precio) {
+    // 1. Añadimos el objeto al array global
+    carrito.push({ nombre, precio });
     
-    contenedor.innerHTML = '';
-    let total = 0;
-
-    // ... (Tu lógica de recorrer el carrito que ya tenías) ...
-    carrito.forEach((item, index) => {
-        total += item.precio;
-        // ... render de items ...
-    });
-
-    // Actualizamos ambos montos
-    if(totalTxt) totalTxt.innerText = `$${total.toFixed(2)}`;
-    if(totalMovilTxt) totalMovilTxt.innerText = `$${total.toFixed(2)}`;
+    // 2. Actualizamos la lista visual y el contador
+    actualizarCarritoUI();
     
-    contador.innerText = carrito.length;
-    localStorage.setItem('carritoAluli', JSON.stringify(carrito));
+    // 3. Verificamos si el sidebar está cerrado para abrirlo
+    const sidebar = document.getElementById('carrito-sidebar');
+    if (!sidebar.classList.contains('activo')) {
+        toggleCarrito();
+    }
 }
