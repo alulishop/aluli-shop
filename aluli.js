@@ -74,7 +74,7 @@ botonesFiltro.forEach(boton => {
 });
 
 let carrito = [];
-const numeroWhatsApp = "+584120000000"; // PON TU NÚMERO AQUÍ
+const numeroWhatsApp = "+584145074414"; // PON TU NÚMERO AQUÍ
 
 // 1. Abrir/Cerrar Carrito
 function toggleCarrito() {
