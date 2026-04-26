@@ -225,16 +225,43 @@ footer {
 
 /* Ajuste móvil para logo */
 @media (max-width: 600px) {
+    /* 1. Ajustamos el Header para que no ocupe tanto espacio */
     header {
         flex-direction: column;
-        gap: 15px;
-        padding: 1rem;
+        height: auto; /* Que se ajuste al contenido */
+        padding: 10px 0;
     }
-    .logo-boceto { font-size: 1.8rem; }
-    .heroe { padding-top: 100px; 
-             text-align: center;
-            }
 
+    /* 2. El HEROE es el culpable de empujar todo hacia abajo */
+    .heroe {
+        padding-top: 120px !important; /* Bajamos el espacio de 220px a 120px */
+        min-height: auto; 
+        text-align: center;
+    }
+
+    .heroe h1 {
+        font-size: 1.8rem; /* Reducimos el tamaño del título "Tu Belleza..." */
+        margin-bottom: 10px;
+    }
+
+    /* 3. Forzamos que la sección de CONTROLES (Buscador + Filtros) aparezca */
+    .seccion-controles {
+        display: flex !important;
+        flex-direction: column !important; /* Apilamos buscador sobre filtros */
+        align-items: center;
+        gap: 15px;
+        margin-top: 20px;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    /* 4. Ajustamos los productos para que se vean en 1 o 2 columnas */
+    .contenedor-productos {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+        padding: 10px;
+    }
 }
 
 /* --- CONTENEDOR GENERAL --- */
