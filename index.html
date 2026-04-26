@@ -16,9 +16,8 @@
         <div class="logo-boceto">Aluli <span>Shop</span></div>
         <nav>
             <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Catálogo</a></li>
-                <li><a href="#">Contacto</a></li>
+                <li><a href="#">Single Page</a></li>
+                <li><a href="https://wa.me/584226466851">Contacto</a></li>
             </ul>
         </nav>
     </header>
@@ -40,41 +39,153 @@
         <button class="btn-filtro" data-categoria="maquillaje">Maquillaje</button>
         <button class="btn-filtro" data-categoria="labiales">Labiales</button>
         <button class="btn-filtro" data-categoria="cabello">Cabello</button>
+        <button class="btn-filtro" data-categoria="protectorsolar">Protector Solar</button>
     </div>
 </section>
         <h2 class="titulo-seccion">Nuestros Productos</h2>
         <div class="contenedor-productos">
-            <div class="producto-card" data-stock="disponible">
-                <div class="producto-imagen">[Imagen]</div>
-                <div class="producto-info">
-                    <p class="producto-categoria">Maquillaje</p>
-                    <h3 class="producto-nombre">Paleta Galaxia</h3>
-                    <p class="producto-precio">$25.00</p>
-                   <button class="btn-ver btn-agregar" onclick="agregarAlCarrito('Paleta Galaxia', 25.00)">Agregar al Carrito
-        </button>
-                </div>
-            </div>
-            <div class="producto-card" data-stock="pocos">
-                <div class="producto-imagen">[Imagen]</div>
+
+
+            <div class="producto-card" data-stock="disponible" data-categoria="labiales">
+                <img src="img/labiales/BEAR.jpeg" alt="BEAR">
                 <div class="producto-info">
                     <p class="producto-categoria">Labiales</p>
-                    <h3 class="producto-nombre">Set Labial Mate</h3>
-                    <p class="producto-precio">$18.50</p>
-                    <button class="btn-ver btn-agregar" onclick="agregarAlCarrito('Labial Mate', 18.50)">
-            Agregar al Carrito
-                    </button>
+                    <h3 class="producto-nombre">BEAR</h3>
+                    <p class="producto-precio">$1.50</p>
+                   <button class="btn-ver btn-agregar" onclick="agregarAlCarrito('BEAR', 1.50)">Agregar al Carrito
+                   </button>
                 </div>
             </div>
-             <div class="producto-card" data-stock="agotado">
-                <div class="producto-imagen">[Imagen]</div>
+
+             <div class="producto-card" data-stock="disponible" data-categoria="protectorsolar">
+                <img src="img/protector-solar/HEDYBEAUTY.jpeg" alt="HEDYBEAUTY">
+                <div class="producto-info">
+                    <p class="producto-categoria">ProtectorSolar</p>
+                    <h3 class="producto-nombre">HEADYBEAUTY</h3>
+                    <p class="producto-precio">$1.30</p>
+                   <button class="btn-ver btn-agregar" onclick="agregarAlCarrito('HEADYBEAUTY', 1.30)">Agregar al Carrito
+                   </button>
+                </div>
+            </div>
+
+            <div class="producto-card" data-stock="disponible" data-categoria="protectorsolar">
+                <img src="img/protector-solar/BIODERMA.jpeg" alt="BIODDERMA">
+                <div class="producto-info">
+                    <p class="producto-categoria">ProtectorSolar</p>
+                    <h3 class="producto-nombre">BIODDERMA</h3>
+                    <p class="producto-precio">$3.00</p>
+                   <button class="btn-ver btn-agregar" onclick="agregarAlCarrito('BIODDERMA', 3.00)">Agregar al Carrito
+                   </button>
+                </div>
+            </div>
+
+              <div class="producto-card" data-stock="disponible" data-categoria="protectorsolar">
+                <img src="img/protector-solar/MECOW.jpeg" alt="MECOW">
+                <div class="producto-info">
+                    <p class="producto-categoria">ProtectorSolar</p>
+                    <h3 class="producto-nombre">MECOW</h3>
+                    <p class="producto-precio">$2.90</p>
+                   <button class="btn-ver btn-agregar" onclick="agregarAlCarrito('MECOW', 2.90)">Agregar al Carrito
+                   </button>
+                </div>
+            </div>
+
+              <div class="producto-card" data-stock="disponible" data-categoria="protectorsolar">
+                <img src="img/protector-solar/MISS FON.jpeg" alt="MISS FON">
+                <div class="producto-info">
+                    <p class="producto-categoria">ProtectorSolar</p>
+                    <h3 class="producto-nombre">MISS FON</h3>
+                    <p class="producto-precio">$2.90</p>
+                   <button class="btn-ver btn-agregar" onclick="agregarAlCarrito('BIODDERMA', 2.90)">Agregar al Carrito
+                   </button>
+                </div>
+            </div>
+
+            
+            <div class="producto-card" data-stock="disponible" data-categoria="labiales">
+                <img src="img/labiales/RIMOCOO.jpeg" alt="RIMOCOO">
                 <div class="producto-info">
                     <p class="producto-categoria">Labiales</p>
-                    <h3 class="producto-nombre">Set Labial Mate</h3>
-                    <p class="producto-precio">$18.50</p>
-                    <button class="btn-ver btn-agregar" onclick="agregarAlCarrito('Paleta Galaxia', 25.00)"> Agregar al Carrito
-        </button>
+                    <h3 class="producto-nombre">RIMOCOO</h3>
+                    <p class="producto-precio">$1.50</p>
+                   <button class="btn-ver btn-agregar" onclick="agregarAlCarrito('RIMOCOO', 1.50)">Agregar al Carrito
+                   </button>
                 </div>
             </div>
+
+            
+            <div class="producto-card" data-stock="disponible" data-categoria="labiales">
+                <img src="img/labiales/MISS FON.jpeg" alt="MISS FON">
+                <div class="producto-info">
+                    <p class="producto-categoria">Labiales</p>
+                    <h3 class="producto-nombre">MISS FON</h3>
+                    <p class="producto-precio">$1.50</p>
+                   <button class="btn-ver btn-agregar" onclick="agregarAlCarrito('MISS FON', 1.50)">Agregar al Carrito
+                   </button>
+                </div>
+            </div>
+
+            
+            <div class="producto-card" data-stock="disponible" data-categoria="labiales">
+                <img src="img/labiales/MOCMALLURE.jpeg" alt="MOCMALLURE">
+                <div class="producto-info">
+                    <p class="producto-categoria">Labiales</p>
+                    <h3 class="producto-nombre">MOCMALLURE</h3>
+                    <p class="producto-precio">$1.70</p>
+                   <button class="btn-ver btn-agregar" onclick="agregarAlCarrito('MOCMALLURE', 1.70)">Agregar al Carrito
+                   </button>
+                </div>
+            </div>
+
+            
+            <div class="producto-card" data-stock="disponible" data-categoria="labiales">
+            <img src="img/labiales/KALIYA BEAUTY.jpeg" alt="KALIYA BEAUTY">
+            <div class="producto-info">
+                    <p class="producto-categoria">Labiales</p>
+                    <h3 class="producto-nombre">KALIYA BEAUTY</h3>
+                    <p class="producto-precio">$1.00</p>
+                <button class="btn-ver btn-agregar" onclick="agregarAlCarrito('KALIYA BEAUTY', 1.00)">Agregar al Carrito
+                </button>
+                </div>
+            </div>
+
+            
+            <div class="producto-card" data-stock="disponible" data-categoria="labiales">
+                <img src="img/labiales/editar.jpeg" alt="editar">
+                <div class="producto-info">
+                    <p class="producto-categoria">Labiales</p>
+                    <h3 class="producto-nombre">editar</h3>
+                    <p class="producto-precio">$0.80</p>
+                   <button class="btn-ver btn-agregar" onclick="agregarAlCarrito('editar', 0.80)">Agregar al Carrito
+                   </button>
+                </div>
+            </div>
+
+            
+            <div class="producto-card" data-stock="disponible" data-categoria="labiales">
+                <img src="img/labiales/MIUNDO.jpeg" alt="MIUNDO">
+                <div class="producto-info">
+                    <p class="producto-categoria">Labiales</p>
+                    <h3 class="producto-nombre">MIUNDO</h3>
+                    <p class="producto-precio">$1.30</p>
+                   <button class="btn-ver btn-agregar" onclick="agregarAlCarrito('MIUNDO', 1.30)">Agregar al Carrito
+                   </button>
+                </div>
+            </div>
+
+            
+            <div class="producto-card" data-stock="disponible" data-categoria="labiales">
+                <img src="img/labiales/MELIYA BEAUTY.jpeg" alt="MELIYA BEAUTY">
+                <div class="producto-info">
+                    <p class="producto-categoria">Labiales</p>
+                    <h3 class="producto-nombre">MELIYA BEAUTY</h3>
+                    <p class="producto-precio">$1.20</p>
+                   <button class="btn-ver btn-agregar" onclick="agregarAlCarrito('MELIYA BEAUTY', 1.20)">Agregar al Carrito
+                   </button>
+                </div>
+            </div>
+           
+            
         </div>
     </main>
 
