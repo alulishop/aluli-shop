@@ -231,7 +231,10 @@ footer {
         padding: 1rem;
     }
     .logo-boceto { font-size: 1.8rem; }
-    .heroe { padding-top: 220px; }
+    .heroe { padding-top: 100px; 
+             text-align: center;
+            }
+
 }
 
 /* --- CONTENEDOR GENERAL --- */
