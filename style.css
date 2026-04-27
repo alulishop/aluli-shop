@@ -602,3 +602,28 @@ footer {
     box-shadow: 0 0 15px var(--cian-aluli);
 }
 
+.paginacion {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 40px 0;
+}
+
+.num-pag {
+    background: var(--fondo-carta);
+    border: 2px solid var(--cian-aluli);
+    color: var(--cian-aluli);
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.num-pag.activo, .num-pag:hover {
+    background: var(--purpura-aluli);
+    border-color: var(--purpura-aluli);
+    color: white;
+    box-shadow: 0 0 15px var(--purpura-aluli);
+    transform: translateY(-3px);
+}
